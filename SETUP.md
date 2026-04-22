@@ -141,11 +141,22 @@ These variables at the top of the sketch can be adjusted before uploading:
 
 | Variable | Default | Description |
 |---|---|---|
+| `daylight_start` | 7 | Hour (24hr) to begin taking images — dawn |
+| `daylight_end` | 17 | Hour (24hr) to stop taking images — dusk |
 | `image_interval` | 5 | Minutes between image bursts |
 | `number_images` | 3 | Number of images per burst (1–5) |
 | `time_between_images` | 500 | Milliseconds between burst images |
 | `image_resolution` | 5 (1280x720) | 1 (lowest) to 9 (2304x1296 max) |
 | `image_compression` | 2 | 1 (smallest file) to 3 (largest file) |
+
+### Daylight Window
+
+The camera will only trigger bursts when the RTC hour is between `daylight_start` and `daylight_end`. Outside that window the board continues its 30-second standby cycle (so the RTC stays powered and the watchdog is petted) but skips image capture. To change the active window, update those two variables before uploading:
+
+```cpp
+uint8_t daylight_start = 7;  // 7am
+uint8_t daylight_end = 17;   // 5pm
+```
 
 ### Resolution Reference
 | Value | Resolution |
@@ -175,8 +186,9 @@ rtc1.setDate(1, 2, 26);  // DD MM YY
 
 ## Powering in the Field
 
+
 - **USB:** Plug into any USB power source
-- **Battery:** The Feather M0 has a JST connector for a LiPo battery — the board will run on battery and charge it when USB is connected
+- **Battery:** First disconnect camera board. The Feather M0 has a JST connector for a LiPo battery — the board will run on battery and charge it when USB is connected
 
 The board reads battery voltage and flashes the status LED accordingly (4 flashes = full, 1 flash = low).
 
@@ -197,6 +209,7 @@ The board reads battery voltage and flashes the status LED accordingly (4 flashe
 ---
 
 ## Troubleshooting
+
 
 | Problem | Solution |
 |---|---|

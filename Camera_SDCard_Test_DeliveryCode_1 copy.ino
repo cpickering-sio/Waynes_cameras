@@ -48,6 +48,9 @@ Adafruit_VC0706 CamB = Adafruit_VC0706(&CamB_connection);
 
 //Global Variables for Images
 
+uint8_t daylight_start = 7;  //Hour (24hr) to start taking images (dawn)
+uint8_t daylight_end = 17;   //Hour (24hr) to stop taking images (dusk)
+
 uint8_t image_interval = 5; //Minutes between turning on and taking images
 uint8_t number_images = 3; //Number of burst images to take (1 - 5)
 uint16_t time_between_images = 500; //Time in milliseconds between burst images (Limits: 4 images, 1000; 5 images 750)
@@ -118,7 +121,7 @@ void loop()
 
   FlashStatus();
 
-  if (minutes_past_midnight() % image_interval == 0) {
+  if (minutes_past_midnight() % image_interval == 0 && rtc1.getHours() >= daylight_start && rtc1.getHours() <= daylight_end) {
 
     digitalWrite(13, HIGH);
 

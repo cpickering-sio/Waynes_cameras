@@ -1,0 +1,30 @@
+# macOS
+.DS_Store
+
+# Archives / zips (redundant with the unpacked folders in the repo)
+*.zip
+
+# Windows test-tool executable (download separately if needed)
+*.exe
+
+# Working "old" / backup copies of sketches
+old/
+**/old/
+Archive.zip
+
+# Diagnostic / experimental sketches not part of the tutorial pipeline
+Arduino/RTC_Diag/
+Arduino/Test_bluetooth_wifi_jun24b/
+
+# Bench-test data and experiments (not needed to program a board)
+AFoV/
+Air_Resolution_test/
+Narrow_bench/
+Wide_bench/
+highrez_bench_test/
+W_highrez_dot_test/
+Battery_config/
+Waynes_Lens_Holder/
+
+# Oversized PDFs (exceed GitHub's 100 MB limit / not needed for programming)
+Blue Robotics housings .pdf

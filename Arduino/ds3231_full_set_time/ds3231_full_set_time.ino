@@ -11,6 +11,7 @@ void setup () {
   pinMode(5, OUTPUT);
   digitalWrite(5, LOW);
 
+
 #ifndef ESP8266
   while (!Serial); // wait for serial port to connect. Needed for native USB
 #endif
@@ -22,21 +23,23 @@ void setup () {
   }
 
   if (rtc.lostPower()) {
-    Serial.println("RTC lost power, let's set the time!");
-    // When time needs to be set on a new device, or after a power loss, the
-    // following line sets the RTC to the date & time this sketch was compiled
-     rtc.adjust(DateTime(F(__DATE__), F(__TIME__)));
-    // This line sets the RTC with an explicit date & time, for example to set
-    // January 21, 2014 at 3am you would call:
-    // rtc.adjust(DateTime(2014, 1, 21, 3, 0, 0));
+    Serial.println("RTC lost power — it will be set below.");
   }
 
-  // When time needs to be re-set on a previously configured device, the
-  // following line sets the RTC to the date & time this sketch was compiled
-  rtc.adjust(DateTime(F(__DATE__), F(__TIME__)));
-  // This line sets the RTC with an explicit date & time, for example to set
-  // January 21, 2014 at 3am you would call:
-  // rtc.adjust(DateTime(2014, 1, 21, 3, 0, 0));
+  // ***** SET THE CLOCK HERE — EDIT THIS LINE FOR EVERY BOARD *****
+  // Type the date & time in the DEPLOYMENT time zone, a minute or two in the
+  // FUTURE, then upload and let the real clock reach that moment.
+  //   Format: DateTime(YYYY, MM, DD, hh, mm, ss)   (24-hour clock)
+  //   Example below = 2026-08-12, 14:35:00.
+  //
+  // Why edit it every board: changing this line forces the IDE to recompile,
+  // which defeats the build-cache trap that otherwise re-stamps the PREVIOUS
+  // board's time. It also sets an exact, known value (no dependence on when the
+  // sketch was compiled or on your computer's time zone).
+  //
+  // This runs unconditionally (not gated on lostPower), so it sets the clock on
+  // every upload. Always confirm afterward with the ds3231_print_date sketch.
+  rtc.adjust(DateTime(2026, 8, 12, 14, 35, 0));
 }
 
 void loop () {

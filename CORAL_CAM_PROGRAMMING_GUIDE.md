@@ -81,25 +81,37 @@ then pick the correct city/zone.
 1. Plug the board into your computer with the data USB cable.
 2. Make sure the board's power switch is **on**.
 3. In the Arduino IDE, open **`Arduino/ds3231_full_set_time/ds3231_full_set_time.ino`**.
-4. Select the port: **Tools → Port →** pick the one that appears (looks like `cu.usbmodemXXXX`).
+4. Find the clock-setting line inside `setup()` and **type in the current date & time for your
+   deployment zone, set a minute or two in the *future*** (24-hour clock):
+
+   ```cpp
+   rtc.adjust(DateTime(2026, 8, 12, 14, 35, 0));  // YYYY, MM, DD, hh, mm, ss
+   ```
+
+   > ⚠️ **Do this for *every* board.** Editing this line does two jobs at once: it sets the exact
+   > time you type, **and** it forces the IDE to recompile. That recompile is what stops a board
+   > from picking up the *previous* board's time — a sneaky bug caused by the IDE reusing a cached
+   > build when the file hasn't changed.
+5. Select the port: **Tools → Port →** pick the one that appears (looks like `cu.usbmodemXXXX`).
    - If the board isn't listed, double-click the little **reset** button next to the USB port, wait
      a few seconds, and check the Port menu again.
-5. Click the **→ (Upload)** arrow.
-6. After it compiles, double-click the little **reset** button next to the USB port.
-7. Wait for **"Done uploading."**
-8. Open the Serial Monitor: **Tools → Serial Monitor** (or the magnifying-glass icon, top right).
-9. In the Serial Monitor, set the speed (bottom-right dropdown) to **57600 baud**.
+6. Click the **→ (Upload)** arrow, and **time it** so the upload finishes right around the moment
+   you typed in step 4.
+7. After it compiles, double-click the little **reset** button next to the USB port.
+8. Wait for **"Done uploading."**
+9. Open the Serial Monitor: **Tools → Serial Monitor** (or the magnifying-glass icon, top right).
+10. In the Serial Monitor, set the speed (bottom-right dropdown) to **57600 baud**.
 
 You'll see the date and time start printing. If it's off by more than a few minutes, seek help.
 
 ✅ **Success looks like:** the Serial Monitor prints lines like
-`2026/8/7 (Friday) 14:32:5` and the seconds tick upward every few seconds.
+`2026/8/12 (Wednesday) 14:35:2` and the seconds tick upward every few seconds — matching the time
+you typed.
 
 > If the year shows something silly like `2000` or `2165`, the clock didn't set — see
 > Troubleshooting.
-
-NOTE: If clock has been set before; open ds3231_full_set_time.ino and change something trivial — add a blank line, save. 
-(This defeats the build cache so it actually recompiles.)
+> If it prints a time that matches a *previous* board instead of what you typed, the edit didn't
+> take (or wasn't saved) — re-check step 4 and re-upload.
 
 
 ---

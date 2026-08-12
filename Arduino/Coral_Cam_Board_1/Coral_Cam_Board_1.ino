@@ -52,7 +52,7 @@ Adafruit_VC0706 CamB = Adafruit_VC0706(&CamB_connection);
 
 //Global Variables for Images
 
-uint8_t image_interval = 2; //Minutes between turning on and taking images
+uint8_t image_interval = 30; //Minutes between turning on and taking images
 uint8_t number_images = 5; //Number of burst images to take (1 - 5)
 uint16_t time_between_images = 250; //Time in milliseconds between burst images (Limits: 4 images, 1000; 5 images 750)
 uint8_t image_resolution = 9; //Resolution, 1 (lowest) to 9 (max)

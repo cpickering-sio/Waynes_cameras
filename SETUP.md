@@ -59,7 +59,7 @@ TakeandStoreCamA(image_resolution, image_compression, number_images);
 
 ## Step 1 — Install the Arduino IDE
 
-Download and install the latest version from **https://www.arduino.cc/en/software/**.
+Download and install the latest version from **(https://support.arduino.cc/hc/en-us/articles/360019833020-Download-and-install-Arduino-IDE)**.
 
 - 🍎 **Mac:** download the `.dmg`, open it, and drag **Arduino IDE** into **Applications**.
 - 🪟 **Windows:** download the `.exe` installer and run it, accepting the default options.

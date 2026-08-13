@@ -57,7 +57,7 @@ We use **three sketches**, in this order:
 
 ---
 
-## Step 2 — Set your computer's clock to the deployment time zone
+## Step 2 — [**SKIP if doing step 3.4**] Set your computer's clock to the deployment time zone
 
 This is the step people forget. **The camera's clock copies your computer's clock**, so your
 computer must be showing the time zone where the cameras will be deployed.

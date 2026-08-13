@@ -180,13 +180,38 @@ Now the actual picture-taking program.
 
 ---
 
-## Step 7 — Label the board and you're done
+## Step 7 — Plug in accessories 
 
-Write the board's ID and the time zone you set on a piece of tape (e.g. `#07 — HST`). This saves
-huge confusion later when there are 30 of them.
+Now it is time to attach the charged battery and magnet switch
+
+1. Turn board off
+2. Unplug micro USB
+3. Plug in charged battery
+4. Plug in Mag Switch
+5. Swap camera on
+6. Make sure LED signals within first 25s
+7. Leave to bench test 
 
 🎉 **The board is programmed.** Repeat from Step 1 for the next board.
 
+## Step 8 — Double Check!!
+
+1. After at least 1 day running check images
+2. Turn Camera off
+3. Remove micro-SD card
+4. Look through images
+5. Verify image quality 
+6. Verify time stamps match real life
+7. Verify duty cycles are operating correctly
+8. Verify milliseconds between images
+9. If anything is not operating properly: INFORM SUPERVISOR   
+10. Clear micro-SD card
+11. Eject micro-SD
+12. Re-insert micro-SD
+
+At this point you will either assemble the camera in the housing, run another bench test, or put it in to storage.
+
+Good job!
 ---
 
 ## Quick checklist (once you've done a few)
@@ -218,4 +243,4 @@ huge confusion later when there are 30 of them.
 ---
 
 *Questions this guide can't answer? Ask your supervisor before guessing — it's easier to check
-than to re-do 30 boards.*
+than to re-do 30 boards. Reach out to Corinne here: cpcikering@ucsd.edu*

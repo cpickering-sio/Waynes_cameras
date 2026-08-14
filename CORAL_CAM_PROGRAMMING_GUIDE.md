@@ -197,7 +197,7 @@ Now it is time to attach the charged battery and magnet switch
 ## Step 8 — Double Check!!
 
 1. After at least 1 day running check images
-2. Turn Camera off
+2. Turn Camera off (note time)
 3. Remove micro-SD card
 4. Look through images
 5. Verify image quality 
